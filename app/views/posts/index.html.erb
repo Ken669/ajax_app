@@ -1,5 +1,9 @@
 <h1>TOP page</h1>
-<%= link_to 'new post page', new_post_path %>
+<%= form_with(model: @post, id: 'form', local: true) do |f| %>
+  <%= f.text_field :memo, autofocus: 'on' %>
+  <%= f.submit 'post', id: 'form' %>
+<% end %>
+
 <% @posts.each do |post| %>
   <div>
     <%= post.memo %>
