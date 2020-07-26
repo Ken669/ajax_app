@@ -5,12 +5,14 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <div style="width: 50%; border: 1px solid #fff; margin-bottom: 10px;">
-    <div>
-      <%= post.memo %>
-    </div>
-    <div>
-      <%= post.created_at %>
+  <div style="margin: 20px;">
+    <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %> >
+      <div>
+        <%= post.memo %>
+      </div>
+      <div>
+        <%= post.created_at %>
+      </div>
     </div>
   </div>
 <% end %>
