@@ -5,8 +5,12 @@
 <% end %>
 
 <% @posts.each do |post| %>
-  <div>
-    <%= post.memo %>
-    <%= post.created_at %>
+  <div style="width: 50%; border: 1px solid #fff; margin-bottom: 10px;">
+    <div>
+      <%= post.memo %>
+    </div>
+    <div>
+      <%= post.created_at %>
+    </div>
   </div>
 <% end %>
