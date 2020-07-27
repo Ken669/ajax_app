@@ -6,6 +6,7 @@ class PostsController < ApplicationController
 
   def create
     Post.create(post_params)
+    render json: {post: post}
     redirect_to '/'
   end
 
@@ -26,6 +27,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:memo)
+    params.require(:post).permit(:memo, checked: false)
   end
 end
