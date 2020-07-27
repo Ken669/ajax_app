@@ -1,16 +1,17 @@
 <h1>TOP page</h1>
-<%= form_with(model: @post, id: 'form', local: true) do |f| %>
+<%= form_with(model: @post, local: true) do |f| %>
   <%= f.text_field :memo, autofocus: 'on' %>
-  <%= f.submit 'post', id: 'form' %>
+  <%= f.submit 'post' %>
 <% end %>
 
 <% @posts.each do |post| %>
   <div style="margin: 20px;">
     <div class="post" data-id=<%= post.id %> data-check=<%= post.checked %> >
+    <%# どれをクリックしたかを送信する為にカスタムデータ（data-）を付与 %>
       <div>
         <%= post.memo %>
       </div>
-      <div>
+      <div class="post-date">
         <%= post.created_at %>
       </div>
     </div>
