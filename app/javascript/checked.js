@@ -60,13 +60,15 @@ function check() {
       });
     }
 
-    // if(element.getAttribute('data-load') !== null){
-    //   return null;
-    // }
-    // element.setAttribute('data-load', 'true');
+    if(element.getAttribute('data-load') !== null){
+      return null;
+      // 全投稿が<div data-load="true">となると、これより下の処理は無視されループの先頭に戻る
+      // index.html.erb:15
+    }
+    element.setAttribute('data-load', 'true');
     
     markAsRead(element);
   });
 }
-window.addEventListener('load', check);
-// setInterval(check, 1000);
+// window.addEventListener('load', check);
+setInterval(check, 1000);
