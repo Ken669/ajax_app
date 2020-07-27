@@ -1,8 +1,14 @@
 <h1>TOP page</h1>
-<%= form_with(model: @post, local: true) do |f| %>
-  <%= f.text_field :memo, autofocus: 'on' %>
-  <%= f.submit 'post' %>
+<%# form_with(model: @post, local: true) do |f| %>
+<%= form_with(url: '#', id: 'form') do |f| %>
+<%# local: true が無い場合Ajax通信 %>
+
+  <%= f.text_field :memo, id: 'text', autofocus: 'on' %>
+  <%= f.submit 'post', id: 'submit' %>
 <% end %>
+
+<div id="list">
+</div>
 
 <% @posts.each do |post| %>
   <div style="margin: 20px;">

@@ -5,8 +5,10 @@ class PostsController < ApplicationController
   end
 
   def create
-    Post.create(post_params)
-    redirect_to '/'
+    render json: {
+      post: Post.create(post_params)
+    }
+    # redirect_to '/'
   end
 
   def checked
@@ -26,6 +28,7 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:memo)
+    # params.require(:post).permit(:memo).merge(checked: false)
+    params.permit(:memo).merge(checked: false)
   end
 end
